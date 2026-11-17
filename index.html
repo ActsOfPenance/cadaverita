@@ -1,0 +1,52 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadaverita</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="video-container">
+
+        <img
+            src="picbg.JPG"
+            alt="Background image"
+            class="fallback-image"
+        >
+
+        <video
+            id="myVideo"
+            autoplay
+            muted
+            loop
+            playsinline
+            preload="auto"
+            poster="picbg.JPG"
+        >
+            <source src="vidbg.mp4" type="video/mp4">
+        </video>
+
+    </div>
+
+    <script>
+        const video = document.getElementById("myVideo");
+        const container = document.querySelector(".video-container");
+
+        video.addEventListener("playing", function() {
+            container.classList.add("playing");
+        });
+
+        video.addEventListener("error", function() {
+            container.classList.remove("playing");
+        });
+
+        video.play().catch(function() {
+            container.classList.remove("playing");
+        });
+    </script>
+
+</body>
+</html>
